@@ -1,2 +1,99 @@
 Train Ticketing application
+
 This application contains following api's
+1. Purchase a ticket from London to France for the user.
+2. Display the ticket details for the perticular user.
+3. Display all the tickets available in a section.
+4. Update the ticket of the user by updating the section.
+5. Delete the ticket for the given user.
+
+Assumptions - Price of the ticket is 20.0
+There are only 2 sections A and B. Each section has a maximum capacity of 50.
+Each user is uniquely identified based on the email id.
+
+Details of the api's request and response (in the same order as described above)
+
+1. Post Request
+URL - http://localhost:8080/tickets/purchase
+body - {
+    "firstName": "Rakshita",
+    "lastName": "Sutrave",
+    "email": "rakshita.sutrave@gmail.com"
+}
+Response -
+{
+    "from": "London",
+    "to": "France",
+    "user": {
+        "firstName": "Rakshita",
+        "lastName": "Sutrave",
+        "email": "rakshita.sutrave@gmail.com"
+    },
+    "pricePaid": 20.0,
+    "seat": {
+        "seatNumber": 1,
+        "section": "A"
+    }
+}
+If the user tries to create another ticket with the same email id, the api is give the response as - Ticket already exists
+
+
+2. Get Request
+URL - http://localhost:8080/tickets/rakshita.sutrave@gmail.com 
+Response - 
+{
+    "from": "London",
+    "to": "France",
+    "user": {
+        "firstName": "Rakshita",
+        "lastName": "Sutrave",
+        "email": "rakshita.sutrave@gmail.com"
+    },
+    "pricePaid": 20.0,
+    "seat": {
+        "seatNumber": 1,
+        "section": "A"
+    }
+}
+If the ticket is not available for the given user, the api will respond with the message - Ticket not found
+
+3- Get Request
+URL - http://localhost:8080/tickets/section/A
+Response - 
+[
+    {
+        "seat": {
+            "seatNumber": 1,
+            "section": "A"
+        },
+        "user": {
+            "firstName": "Rakshita",
+            "lastName": "Sutrave",
+            "email": "rakshita.sutrave@gmail.com"
+        }
+    }
+]
+If the requested section doesnot contain any tickets, the api will respond with the message - Section B does not contain any tickets
+
+4. Put Request
+URL - http://localhost:8080/tickets/rakshita.sutrave@gmail.com/seat?newSection=B
+Response - 
+{
+    "from": "London",
+    "to": "France",
+    "user": {
+        "firstName": "Rakshita",
+        "lastName": "Sutrave",
+        "email": "rakshita.sutrave@gmail.com"
+    },
+    "pricePaid": 20.0,
+    "seat": {
+        "seatNumber": 1,
+        "section": "B"
+    }
+}
+If the user is already available in the given section, the api will respond with message - User already exists in section B
+
+5. Delete Request
+URL - http://localhost:8080/tickets/rakshita.sutrave@gmail.com
+Response - User removed from the ticket
