@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "5d967506-59f3-4a68-9c91-41a0a693b93e",
+		"name": "TrainTicketCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44230285"
+	},
+	"item": [
+		{
+			"name": "PurchaseTicket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Rakshita\",\r\n    \"lastName\": \"Sutrave\",\r\n    \"email\": \"rakshita.sutrave@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tickets/purchase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tickets",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTicket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tickets/rakshita.sutrave@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tickets",
+						"rakshita.sutrave@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTicketForSection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tickets/section/A",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tickets",
+						"section",
+						"A"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateTicket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tickets/rakshita.sutrave@gmail.com/seat?newSection=B",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tickets",
+						"rakshita.sutrave@gmail.com",
+						"seat"
+					],
+					"query": [
+						{
+							"key": "newSection",
+							"value": "B"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTicket",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tickets/rakshita.sutrave@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tickets",
+						"rakshita.sutrave@gmail.com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
