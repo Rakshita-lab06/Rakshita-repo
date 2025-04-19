@@ -39,7 +39,8 @@ If the user tries to create another ticket with the same email id, the api is gi
 
 
 2. Get Request
-URL - http://localhost:8080/tickets/rakshita.sutrave@gmail.com 
+URL - http://localhost:8080/tickets/{email} 
+Eg- http://localhost:8080/tickets/rakshita.sutrave@gmail.com 
 Response - 
 {
     "from": "London",
@@ -58,7 +59,8 @@ Response -
 If the ticket is not available for the given user, the api will respond with the message - Ticket not found
 
 3- Get Request
-URL - http://localhost:8080/tickets/section/A
+URL - http://localhost:8080/tickets/section/{Section}
+Eg - http://localhost:8080/tickets/section/A
 Response - 
 [
     {
@@ -76,7 +78,8 @@ Response -
 If the requested section doesnot contain any tickets, the api will respond with the message - Section B does not contain any tickets
 
 4. Put Request
-URL - http://localhost:8080/tickets/rakshita.sutrave@gmail.com/seat?newSection=B
+URL - http://localhost:8080/tickets/{email}/seat?newSection={section}
+Eg - http://localhost:8080/tickets/rakshita.sutrave@gmail.com/seat?newSection=B
 Response - 
 {
     "from": "London",
@@ -95,5 +98,8 @@ Response -
 If the user is already available in the given section, the api will respond with message - User already exists in section B
 
 5. Delete Request
-URL - http://localhost:8080/tickets/rakshita.sutrave@gmail.com
+URL - http://localhost:8080/tickets/{email}
+Eg - http://localhost:8080/tickets/rakshita.sutrave@gmail.com
 Response - User removed from the ticket
+
+The file "TrainTicketCollection.postman_collection.json" contains the postman collection of the implemented API's
